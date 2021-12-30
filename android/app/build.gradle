@@ -162,6 +162,9 @@ android {
                     abiFilters nativeArchitectures.split(',')
                 }
             }
+            ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a" // Included this line to remove 86 architectures
+            }
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -196,8 +199,15 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     implementation project(':react-native-fs')
-    implementation project(':react-native-maps')
+    // implementation project(':react-native-maps')
+    implementation(project(':react-native-maps')){
+       exclude group: 'com.google.android.gms', module: 'play-services-base'
+       exclude group: 'com.google.android.gms', module: 'play-services-maps'
+    }
+    implementation 'com.google.android.gms:play-services-base:17.2.1'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation project(':react-native-camera')
+    implementation project(':@react-native-community_geolocation')
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }

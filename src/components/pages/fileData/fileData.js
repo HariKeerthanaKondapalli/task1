@@ -14,10 +14,10 @@ class FileData extends Component{
     this.state = {saved: false, dataFromFile: [], loading: false};
   }
   saveToStorage(){
-    RNFS.exists(`${RNFS.DownloadDirectoryPath}/md_data.json`)
+    RNFS.exists(`${RNFS.DownloadDirectoryPath}/md_data1.json`)
     .then((result)=>{
       if(!result){
-        RNFS.writeFile(`${RNFS.DownloadDirectoryPath}/md_data.json`,JSON.stringify(Data),'utf8')
+        RNFS.writeFile(`${RNFS.DownloadDirectoryPath}/md_data1.json`,JSON.stringify(Data),'utf8')
         .then((success)=>{
           Alert.alert('Saved','Saved Successfully in Downloads',
           [{
@@ -50,11 +50,11 @@ class FileData extends Component{
     });
   }
   fetchFromStorage(){
-    RNFS.exists(`${RNFS.DownloadDirectoryPath}/md_data.json`)
+    RNFS.exists(`${RNFS.DownloadDirectoryPath}/md_data1.json`)
     .then((result)=>{
       if(result){
         this.setState({loading: true});
-        RNFS.readFile(`${RNFS.DownloadDirectoryPath}/md_data.json`,'utf8')
+        RNFS.readFile(`${RNFS.DownloadDirectoryPath}/md_data1.json`,'utf8')
         .then((content)=>{
           var data = JSON.parse(content);
           this.setState({dataFromFile: data, loading: false});
