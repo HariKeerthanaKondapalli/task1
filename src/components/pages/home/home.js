@@ -62,13 +62,13 @@ const Styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     justifyContent: 'center',
-    height: '30%',
+    height: '38%',
     alignItems: 'center',
     backgroundColor: 'white',
   },
   imagesView:{
     alignItems: 'center', 
-    marginTop: '40%',
+    marginTop: '45%',
     alignContent: 'center',
     justifyContent: 'center'
   },
