@@ -21,7 +21,7 @@ const Styles = StyleSheet.create({
   },
   text: {
     flex:1,
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: '500',
     textAlign:'center',
     alignSelf:'center',
